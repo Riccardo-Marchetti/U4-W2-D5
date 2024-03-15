@@ -12,7 +12,7 @@ import java.util.List;
 
 public class Application {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
 
         // CREAZIONE LIBRI
         Libri libro1 = new Libri("24342", "libro1", 2020, 260, "Riccardo", "Fantasy");
@@ -59,33 +59,52 @@ public class Application {
 
         // RIMUOVI ELEMENTO
         // LIBRI
+        System.out.println(listaLibri);
         catalogo.rimuoviLibro("43722");
+        System.out.println(listaLibri);
         // RIVISTE
+        System.out.println(listaRiviste);
         catalogo.rimuoviRivista("34526");
+        System.out.println(listaRiviste);
 
         // RIVISTE
         // RICERCA PER CODICE ISBN
         System.out.println("----------------------- Ricerca per codice isbn -----------------------");
         // LIBRI
         List<Libri> libriCodiceISBN = catalogo.searchBooksByCodiceISBN("29324");
+        if (libriCodiceISBN.isEmpty()){
+            throw new Exception("Non ho trovato nessun libro con questo codice isbn");
+        }
         System.out.println(libriCodiceISBN);
         // RIVISTE
         List<Riviste> rivisteCodiceISBN = catalogo.searchMagazinesByCodiceISBN("18473");
+        if (rivisteCodiceISBN.isEmpty()){
+            throw new Exception("Non ho trovato nessuna rivista con questo codice isbn");
+        }
         System.out.println(rivisteCodiceISBN);
 
         // RICERCA PER ANNO DI PUBBLICAZIONE
         System.out.println("----------------------- Ricerca per anno di pubblicazione -----------------------");
         // LIBRI
         List<Libri> libriAnnoDiPubblicazione = catalogo.searchBooksByYears(2020);
+        if (libriAnnoDiPubblicazione.isEmpty()){
+            throw new Exception("Non ho trovato nessun libro pubblicato in questo anno");
+        }
         System.out.println(libriAnnoDiPubblicazione);
         // RIVISTE
         List<Riviste> rivisteAnnoDiPubblicazione = catalogo.searchMagazinesByYears(2020);
+        if (rivisteAnnoDiPubblicazione.isEmpty()){
+            throw new Exception("Non ho trovato nessuna rivista pubblicata in questo anno");
+        }
         System.out.println(rivisteAnnoDiPubblicazione);
 
         // RICERCA PER AUTORE
         System.out.println("----------------------- Ricerca per autore -----------------------");
         // LIBRI
         List<Libri> libriAutore = catalogo.searchByAuthor("Fabio");
+        if (libriAutore.isEmpty()){
+            throw new Exception("Non ho trovato nessun libro di questo Autore");
+        }
         System.out.println(libriAutore);
 
         // SALVATAGGIO SU DISCO

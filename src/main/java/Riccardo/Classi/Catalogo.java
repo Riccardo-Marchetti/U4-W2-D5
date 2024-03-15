@@ -32,13 +32,19 @@ public class Catalogo {
         this.riviste.add(rivista);
     }
     // RIMOZIONE ELEMENTO
-    public Libri rimuoviLibro(String isbn){
-       List<Libri> lista =  this.libri.stream().filter(codice -> codice.getCodiceISBN().equals(isbn)).toList();
-       this.libri.remove(lista.get(0));
-       return lista.get(0);
+    public Libri rimuoviLibro(String isbn) throws Exception {
+       List<Libri> libro =  this.libri.stream().filter(codice -> codice.getCodiceISBN().equals(isbn)).toList();
+        if (libro.isEmpty()){
+            throw new Exception("Non ho trovato nessun libro con questo codice isbn");
+        }
+            this.libri.remove(libro.get(0));
+            return libro.get(0);
     }
-    public Riviste rimuoviRivista(String isbn){
+    public Riviste rimuoviRivista(String isbn) throws Exception {
         List<Riviste> rivista =  this.riviste.stream().filter(codice -> codice.getCodiceISBN().equals(isbn)).toList();
+        if (rivista.isEmpty()){
+            throw new Exception("Non ho trovato nessuna rivista con questo codice isbn");
+        }
         this.riviste.remove(rivista.get(0));
         return rivista.get(0);
     }
