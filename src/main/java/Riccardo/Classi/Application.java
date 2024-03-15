@@ -65,6 +65,11 @@ public class Application {
         List<Riviste> rivisteAnnoDiPubblicazione = catalogo.searchMagazinesByYears(2020);
         System.out.println(rivisteAnnoDiPubblicazione);
 
+        // RICERCA PER AUTORE
+        System.out.println("----------------------- Ricerca per autore -----------------------");
+        // LIBRI
+        List<Libri> libriAutore = catalogo.searchByAuthor("Fabio");
+        System.out.println(libriAutore);
 
     }
 }

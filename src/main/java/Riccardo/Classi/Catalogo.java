@@ -30,4 +30,8 @@ public class Catalogo {
     public List<Riviste> searchMagazinesByYears(int anno){
         return this.riviste.stream().filter(pubblicazione -> pubblicazione.getAnnoPubblicazione() == anno).toList();
     }
+    // RICERCA PER AUTORE
+    public List<Libri> searchByAuthor(String autore){
+        return this.libri.stream().filter(aut -> aut.getAutore().equals(autore)).toList();
+    }
 }
