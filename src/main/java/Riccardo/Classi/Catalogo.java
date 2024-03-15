@@ -13,5 +13,12 @@ public class Catalogo {
         this.libri = libri;
         this.riviste = riviste;
     }
-
+    // METODI
+    // RICERCA PER ISBN
+    public List<Libri> searchBooksByCodiceISBN(String isbn){
+     return  this.libri.stream().filter(codice -> codice.getCodiceISBN().equals(isbn)).toList();
+    }
+    public List<Riviste> searchMagazinesByCodiceISBN(String isbn){
+        return  this.riviste.stream().filter(codice -> codice.getCodiceISBN().equals(isbn)).toList();
+    }
 }

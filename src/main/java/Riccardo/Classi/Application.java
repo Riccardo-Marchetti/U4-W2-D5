@@ -13,12 +13,12 @@ public class Application {
     public static void main(String[] args) {
 
         // CREAZIONE LIBRI
-        Libri libro1 = new Libri(24342, "libro1", 2020, 260, "Riccardo", "Fantasy");
-        Libri libro2 = new Libri(57483, "libro2", 2023, 300, "Antonio", "Avventura e azione");
-        Libri libro3 = new Libri(34502, "libro3", 2022, 180, "Luca", "Thriller");
-        Libri libro4 = new Libri(71243, "libro4", 2019, 320, "Fabio", "Fantascienza");
-        Libri libro5 = new Libri(83645, "libro5", 2012, 162, "Alberto", "Horror");
-        Libri libro6 = new Libri(98437, "libro6", 2015, 235, "Fabio", "Fantasy");
+        Libri libro1 = new Libri("24342", "libro1", 2020, 260, "Riccardo", "Fantasy");
+        Libri libro2 = new Libri("57483", "libro2", 2023, 300, "Antonio", "Avventura e azione");
+        Libri libro3 = new Libri("34502", "libro3", 2022, 180, "Luca", "Thriller");
+        Libri libro4 = new Libri("71243", "libro4", 2019, 320, "Fabio", "Fantascienza");
+        Libri libro5 = new Libri("83645", "libro5", 2012, 162, "Alberto", "Horror");
+        Libri libro6 = new Libri("98437", "libro6", 2015, 235, "Fabio", "Fantasy");
         // LISTA DI LIBRI
         List<Libri> listaLibri = new ArrayList<>();
         listaLibri.add(libro1);
@@ -29,12 +29,12 @@ public class Application {
         listaLibri.add(libro6);
 
         // CREAZIONE RIVISTE
-        Riviste rivista1 = new Riviste(18473, "rivista1", 2016, 40, Periodicita.SETTIMANALE);
-        Riviste rivista2 = new Riviste(20485, "rivista2", 2018, 75, Periodicita.MENSILE);
-        Riviste rivista3 = new Riviste(37549, "rivista3", 2020, 90, Periodicita.SEMESTRALE);
-        Riviste rivista4 = new Riviste(42528, "rivista4", 2022, 82, Periodicita.MENSILE);
-        Riviste rivista5 = new Riviste(51237, "rivista5", 2009, 33, Periodicita.SEMESTRALE);
-        Riviste rivista6 = new Riviste(81349, "rivista6", 2011, 45, Periodicita.SETTIMANALE);
+        Riviste rivista1 = new Riviste("18473", "rivista1", 2016, 40, Periodicita.SETTIMANALE);
+        Riviste rivista2 = new Riviste("20485", "rivista2", 2018, 75, Periodicita.MENSILE);
+        Riviste rivista3 = new Riviste("37549", "rivista3", 2020, 90, Periodicita.SEMESTRALE);
+        Riviste rivista4 = new Riviste("42528", "rivista4", 2022, 82, Periodicita.MENSILE);
+        Riviste rivista5 = new Riviste("51237", "rivista5", 2009, 33, Periodicita.SEMESTRALE);
+        Riviste rivista6 = new Riviste("81349", "rivista6", 2011, 45, Periodicita.SETTIMANALE);
         // LISTA DI RIVISTE
         List<Riviste> listaRiviste = new ArrayList<>();
         listaRiviste.add(rivista1);
@@ -47,5 +47,12 @@ public class Application {
         // CREAZIONE CATALOGO CONTENENTE LIBRI E RIVISTE
         Catalogo catalogo = new Catalogo(listaLibri, listaRiviste);
 
+        // RICERCA PER ISBN
+        // LIBRI
+        List<Libri> libriCodiceISBN = catalogo.searchBooksByCodiceISBN("24342");
+        System.out.println(libriCodiceISBN);
+        // RIVISTE
+        List<Riviste> rivisteCodiceISBN = catalogo.searchMagazinesByCodiceISBN("18473");
+        System.out.println(rivisteCodiceISBN);
     }
 }
