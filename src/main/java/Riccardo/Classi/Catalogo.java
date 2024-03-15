@@ -15,6 +15,14 @@ public class Catalogo {
     }
 
     // METODI
+    // AGGIUNTA ELEMENTO
+    public void aggiungiLibro(Libri libro){
+        this.libri.add(libro);
+    }
+    public void aggiungiRivista(Riviste rivista){
+        this.riviste.add(rivista);
+    }
+
     // RICERCA PER ISBN
     public List<Libri> searchBooksByCodiceISBN(String isbn){
      return  this.libri.stream().filter(codice -> codice.getCodiceISBN().equals(isbn)).toList();
