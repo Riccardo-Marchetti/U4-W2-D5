@@ -10,9 +10,8 @@ public class Catalogo {
 
     // COSTRUTTORE
     public Catalogo(List<Libri> libri, List<Riviste> riviste) {
-        this.libri = new ArrayList<>();
-        this.riviste = new ArrayList<>();
+        this.libri = libri;
+        this.riviste = riviste;
     }
 
-    
 }
