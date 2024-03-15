@@ -40,7 +40,6 @@ public class Riviste {
         return periodicita;
     }
     // ToString
-
     @Override
     public String toString() {
         return "Riviste {" +

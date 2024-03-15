@@ -1,12 +1,14 @@
 package Riccardo.Classi;
 
 import Riccardo.Enum.Periodicita;
-import com.github.javafaker.Faker;
+import org.apache.commons.io.FileUtils;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.Locale;
+
 
 public class Application {
 
@@ -53,6 +55,11 @@ public class Application {
         // RIVISTE
         catalogo.aggiungiRivista(new Riviste("56367", "rivista7", 2007, 63, Periodicita.SETTIMANALE));
 
+        // RIMUOVI ELEMENTO
+        // LIBRI
+//        catalogo.rimuoviLibro("34502");
+
+        // RIVISTE
         // RICERCA PER CODICE ISBN
         System.out.println("----------------------- Ricerca per codice isbn -----------------------");
         // LIBRI
@@ -77,5 +84,24 @@ public class Application {
         List<Libri> libriAutore = catalogo.searchByAuthor("Fabio");
         System.out.println(libriAutore);
 
+        // SALVATAGGIO SU DISCO
+        File file = new File("src/output.txt");
+
+        try {
+            for (Libri libro : catalogo.getLibri()){
+                FileUtils.writeStringToFile(file, libro.toString() + System.lineSeparator(), StandardCharsets.UTF_8, true);
+            }
+            for (Riviste rivista : catalogo.getRiviste()){
+
+                FileUtils.writeStringToFile(file, rivista.toString() + System.lineSeparator(), StandardCharsets.UTF_8, true);
+            }
+            System.out.println("scritto");
+
+            String contenuto = FileUtils.readFileToString(file, StandardCharsets.UTF_8);
+            System.out.println("contenuto file");
+            System.out.println(contenuto);
+        } catch (IOException e) {
+            System.err.println(e.getMessage());
+        }
     }
 }

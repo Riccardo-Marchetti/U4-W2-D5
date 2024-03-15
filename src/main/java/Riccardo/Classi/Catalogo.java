@@ -14,6 +14,15 @@ public class Catalogo {
         this.riviste = riviste;
     }
 
+    // GETTER
+    public List<Libri> getLibri() {
+        return libri;
+    }
+
+    public List<Riviste> getRiviste() {
+        return riviste;
+    }
+
     // METODI
     // AGGIUNTA ELEMENTO
     public void aggiungiLibro(Libri libro){
@@ -22,6 +31,13 @@ public class Catalogo {
     public void aggiungiRivista(Riviste rivista){
         this.riviste.add(rivista);
     }
+    // RIMOZIONE ELEMENTO
+//    public void rimuoviLibro(String isbn){
+//        this.libri.remove(isbn);
+//    }
+//    public void rimuoviRivista(){
+//
+//    }
 
     // RICERCA PER ISBN
     public List<Libri> searchBooksByCodiceISBN(String isbn){
@@ -41,5 +57,14 @@ public class Catalogo {
     // RICERCA PER AUTORE
     public List<Libri> searchByAuthor(String autore){
         return this.libri.stream().filter(aut -> aut.getAutore().equals(autore)).toList();
+    }
+
+    // ToString
+    @Override
+    public String toString() {
+        return "Catalogo{" +
+                "libri=" + libri +
+                ", riviste=" + riviste +
+                '}';
     }
 }
