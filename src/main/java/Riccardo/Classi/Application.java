@@ -47,12 +47,24 @@ public class Application {
         // CREAZIONE CATALOGO CONTENENTE LIBRI E RIVISTE
         Catalogo catalogo = new Catalogo(listaLibri, listaRiviste);
 
-        // RICERCA PER ISBN
+        // RICERCA PER CODICE ISBN
+        System.out.println("----------------------- Ricerca per codice isbn -----------------------");
         // LIBRI
         List<Libri> libriCodiceISBN = catalogo.searchBooksByCodiceISBN("24342");
         System.out.println(libriCodiceISBN);
         // RIVISTE
         List<Riviste> rivisteCodiceISBN = catalogo.searchMagazinesByCodiceISBN("18473");
         System.out.println(rivisteCodiceISBN);
+
+        // RICERCA PER ANNO DI PUBBLICAZIONE
+        System.out.println("----------------------- Ricerca per anno di pubblicazione -----------------------");
+        // LIBRI
+        List<Libri> libriAnnoDiPubblicazione = catalogo.searchBooksByYears(2020);
+        System.out.println(libriAnnoDiPubblicazione);
+        // RIVISTE
+        List<Riviste> rivisteAnnoDiPubblicazione = catalogo.searchMagazinesByYears(2020);
+        System.out.println(rivisteAnnoDiPubblicazione);
+
+
     }
 }
