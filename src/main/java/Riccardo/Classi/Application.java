@@ -52,12 +52,16 @@ public class Application {
         // AGGIUNTA ELEMENTO
         // LIBRI
         catalogo.aggiungiLibro( new Libri("29324", "libro7", 2000, 215, "Marco", "Avventura e azione"));
+        catalogo.aggiungiLibro(new Libri("43722", "libro8", 2001, 234, "Luigi", "Horror"));
         // RIVISTE
         catalogo.aggiungiRivista(new Riviste("56367", "rivista7", 2007, 63, Periodicita.SETTIMANALE));
+        catalogo.aggiungiRivista(new Riviste("34526", "rivista8", 2010, 69, Periodicita.MENSILE));
 
         // RIMUOVI ELEMENTO
         // LIBRI
-//        catalogo.rimuoviLibro("34502");
+        catalogo.rimuoviLibro("43722");
+        // RIVISTE
+        catalogo.rimuoviRivista("34526");
 
         // RIVISTE
         // RICERCA PER CODICE ISBN

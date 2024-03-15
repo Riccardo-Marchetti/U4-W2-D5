@@ -32,12 +32,16 @@ public class Catalogo {
         this.riviste.add(rivista);
     }
     // RIMOZIONE ELEMENTO
-//    public void rimuoviLibro(String isbn){
-//        this.libri.remove(isbn);
-//    }
-//    public void rimuoviRivista(){
-//
-//    }
+    public Libri rimuoviLibro(String isbn){
+       List<Libri> lista =  this.libri.stream().filter(codice -> codice.getCodiceISBN().equals(isbn)).toList();
+       this.libri.remove(lista.get(0));
+       return lista.get(0);
+    }
+    public Riviste rimuoviRivista(String isbn){
+        List<Riviste> rivista =  this.riviste.stream().filter(codice -> codice.getCodiceISBN().equals(isbn)).toList();
+        this.riviste.remove(rivista.get(0));
+        return rivista.get(0);
+    }
 
     // RICERCA PER ISBN
     public List<Libri> searchBooksByCodiceISBN(String isbn){
